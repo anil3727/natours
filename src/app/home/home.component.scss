@@ -15,14 +15,17 @@ nav{
   // we can nest li inside .navigation selector instead of writting another selector like .navigation li
   li{
     padding:10px;
-    display:inline-block
-  }
-  // here we are selecting li again and setting some more css rules
-  li:after{
-    content:'-';
+    display:inline-block;
+    // & is used if we want to use the same selector twice usually with some pseudo selector, so that we dont need to write the selector twice,
+    // we can just use & and put the psuedo selector inside the selector just like this
+    // Compare it with previous commit you'll see the difference
+    &:after{
+      content:'-';
+    }
+
+    &:last-child:after{
+      content:'';
+    }
   }
 
-  li:last-child:after{
-    content:'';
-  }
 }
