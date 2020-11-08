@@ -1,0 +1,28 @@
+*margin{
+  margin:0;
+  padding:0;
+}
+$color-primary:#f9ed69;// yellow color
+$color-secondary:#f08a5d;// Orange color
+$color-tertiary:#b83b5e;// pink color
+nav{
+  margin:30px;
+  background-color: $color-primary;
+}
+
+.navigation{
+  list-style:none;
+  // we can nest li inside .navigation selector instead of writting another selector like .navigation li
+  li{
+    padding:10px;
+    display:inline-block
+  }
+  // here we are selecting li again and setting some more css rules
+  li:after{
+    content:'-';
+  }
+
+  li:last-child:after{
+    content:'';
+  }
+}
