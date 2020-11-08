@@ -5,27 +5,76 @@
 $color-primary:#f9ed69;// yellow color
 $color-secondary:#f08a5d;// Orange color
 $color-tertiary:#b83b5e;// pink color
+$color-text-dark:darkgray;
+$color-text-light:#eee;
+$width-button: 150px;
 nav{
   margin:30px;
   background-color: $color-primary;
-}
+  // since .buttons and .navigation both are floating; nav looses its height so used clearfix like below
+  &::after{
+    content:"";
+    clear:both;
+    display: table;
+  }
+  .buttons{
+    float:right;
+  }
 
+}
 .navigation{
+  margin:0px;
   list-style:none;
+  padding:0;
+  float:left;
   // we can nest li inside .navigation selector instead of writting another selector like .navigation li
   li{
-    padding:10px;
+    margin-left:10px;
     display:inline-block;
-    // & is used if we want to use the same selector twice usually with some pseudo selector, so that we dont need to write the selector twice,
-    // we can just use & and put the psuedo selector inside the selector just like this
-    // Compare it with previous commit you'll see the difference
-    &:after{
-      content:'-';
+    // Remember if you dont put & : first-child will be searched inside li, and not the li itself as first child
+    &:first-child{
+      margin:0;
     }
-
-    &:last-child:after{
-      content:'';
+    // .navigation li a
+    a:link{
+      padding:10px;
+      display: inline-block;
+      text-decoration: none;
+      text-transform: uppercase;
+      color:$color-text-dark;
     }
   }
 
+}
+
+.button-main:link, .button-hot:link{
+  padding:10px;
+  display:inline-block;
+  text-align:center;
+  border-radius: 100px;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: $width-button;
+}
+
+.button-main{
+  &:link{
+    background-color: $color-secondary;
+    color: black;
+  }
+  &:hover{
+    background-color: darken($color-secondary, 15%);
+    color: $color-text-light;
+  }
+}
+
+.button-hot{
+  &:link{
+    color: black;
+    background-color: hotpink;
+  }
+  &:hover{
+    background-color: darken(hotpink, 15%);
+    color: $color-text-light;
+  }
 }
