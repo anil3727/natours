@@ -88,6 +88,7 @@ nav{
     background-color: hotpink;
   }
   &:hover{
+    @include style-link-text(#fff);
     background-color: darken(hotpink, 15%);
     color: $color-text-light;
   }
